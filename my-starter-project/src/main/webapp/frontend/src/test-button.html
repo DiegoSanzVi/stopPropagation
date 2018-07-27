@@ -1,0 +1,42 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/vaadin-button/src/vaadin-button.html">
+
+<dom-module id="test-button">
+    <template>
+        <style>
+            :host {
+                width: 100%;
+            }
+        </style>
+        <div on-click="handleClickDiv" style="background-color:orange;width:100%;">
+            <vaadin-button on-click="handleClickButton" id="vaadinButton">
+                Button
+            </vaadin-button>
+        </div>
+    </template>
+
+    <script>
+        class TestButton extends Polymer.Element {
+            static get is() {
+                return 'test-button';
+            }
+
+            static get properties() {
+                return {
+                    // Declare your properties here.
+                };
+            }
+
+            handleClickDiv(){
+                alert("Click on Div");
+            }
+
+            handleClickButton(event){
+                console.log("Click on Button");
+                event.stopPropagation();
+            }
+
+        }
+        customElements.define(TestButton.is, TestButton);
+    </script>
+</dom-module>
